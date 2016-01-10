@@ -31,9 +31,12 @@ change here to another server IP and port. like this. then you will receive anot
 
 As for the record side, as TCP server, you should better not change it.
 
+
+##why there are some error
+If you find there are some error in this demo, they are not really error. you can only **right click the project name**, select **"Android tools"**, and then **"clear Lint Markers"**. OK, the world is stillness!
+
 ##Last but not least
 
 when you use this demo, you should better **use earphone as audio output mode**.
 
-If you find there are some error in this demo, they are not really error. you can only **right click the project name**, select **"Android tools"**, and then **"clear Lint Markers"**. OK, the world is stillness!
 
