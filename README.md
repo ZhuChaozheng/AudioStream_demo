@@ -35,3 +35,5 @@ As for the record side, as TCP server, you should better not change it.
 
 when you use this demo, you should better **use earphone as audio output mode**.
 
+If you find there are some error in this demo, they are not really error. you can only **right click the project name**, select **"Android tools"**, and then **"clear Lint Markers"**. OK, the world is stillness!
+
