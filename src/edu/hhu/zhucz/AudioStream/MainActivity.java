@@ -1,7 +1,4 @@
 package edu.hhu.zhucz.AudioStream;
-
-import com.example.heuy.R;
-
 import edu.hhu.zhucz.AudioStream.VolPlayer;
 import edu.hhu.zhucz.AudioStream.VolRecorder;
 import android.os.Bundle;

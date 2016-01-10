@@ -20,11 +20,11 @@ public class VolPlayer extends Thread {
 	public void init() {
 		try {
 			keep_running = true ;
-			out_buf_size = AudioTrack.getMinBufferSize(8000,
+			out_buf_size = AudioTrack.getMinBufferSize(44100,
 					AudioFormat.CHANNEL_OUT_MONO,
 					AudioFormat.ENCODING_PCM_16BIT);
 			//error here
-			out_trk = new AudioTrack(AudioManager.STREAM_MUSIC, 8000,
+			out_trk = new AudioTrack(AudioManager.STREAM_MUSIC, 44100,
 					AudioFormat.CHANNEL_OUT_MONO,
 					AudioFormat.ENCODING_PCM_16BIT,
 					out_buf_size,

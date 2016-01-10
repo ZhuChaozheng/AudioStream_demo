@@ -25,12 +25,12 @@ public class VolRecorder extends Thread
     protected ServerSocket ss;
     public void init()
     {
-     in_buf_size =  AudioRecord.getMinBufferSize(8000,
+     in_buf_size =  AudioRecord.getMinBufferSize(44100,
                         AudioFormat.CHANNEL_IN_MONO,
                         AudioFormat.ENCODING_PCM_16BIT);
   
   record = new AudioRecord(MediaRecorder.AudioSource.MIC,
-  8000,
+  44100,
   AudioFormat.CHANNEL_IN_MONO,
   AudioFormat.ENCODING_PCM_16BIT, in_buf_size) ;
  
@@ -44,7 +44,7 @@ public class VolRecorder extends Thread
  {
       try
       {
-    	  ss = new ServerSocket(5060);
+    	 ss = new ServerSocket(5060);
      	 s = ss.accept();
      	 dout=new DataOutputStream(s.getOutputStream());
           byte [] bytes_pkg ;		//用于存储录制好的语音
