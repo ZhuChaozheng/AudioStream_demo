@@ -20,19 +20,16 @@ public class VolPlayer extends Thread {
 	public void init() {
 		try {
 			keep_running = true ;
-			out_buf_size = AudioTrack.getMinBufferSize(44100,
+			out_buf_size = AudioTrack.getMinBufferSize( 8000,
 					AudioFormat.CHANNEL_OUT_MONO,
 					AudioFormat.ENCODING_PCM_16BIT);
-			//error here
-			out_trk = new AudioTrack(AudioManager.STREAM_MUSIC, 44100,
+			out_trk = new AudioTrack(AudioManager.STREAM_MUSIC, 8000,
 					AudioFormat.CHANNEL_OUT_MONO,
 					AudioFormat.ENCODING_PCM_16BIT,
-					out_buf_size,
+					out_buf_size  ,
 					AudioTrack.MODE_STREAM);
-
-			out_bytes=new byte[out_buf_size];
-
-
+			out_bytes=new byte[512];
+			//1114
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -52,18 +49,22 @@ public class VolPlayer extends Thread {
 	{
 		try
 		{
-		ss=new Socket("127.0.0.1",5060);
-		din=new DataInputStream(ss.getInputStream());
-		byte [] bytes_pkg = null ;
-		out_trk.play() ;
-		while(keep_running) {
-			try {
-				din.read(out_bytes);
-				bytes_pkg = out_bytes.clone() ;
-				out_trk.write(bytes_pkg, 0, bytes_pkg.length) ;
-			} catch(Exception e) {
-				e.printStackTrace();
+			while(ss == null)
+			{
+				ss=new Socket("127.0.0.1", 15636);
 			}
+			din=new DataInputStream(ss.getInputStream());
+			byte [] bytes_pkg = null ;
+			out_trk.play() ;
+			int length_p;
+			while(keep_running) {
+				try {
+					length_p = din.read(out_bytes);
+					bytes_pkg = out_bytes.clone();
+					out_trk.write(bytes_pkg, 0, length_p);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
 
 		}
 		out_trk.stop() ;

@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 	    switch(item.getItemId()) {
 	    case R.id.mi1:
         {
-         m_player = new VolPlayer() ;
+        	m_player = new VolPlayer() ;
             m_recorder = new VolRecorder() ;
             m_recorder.init() ;
             m_player.init() ;
@@ -44,9 +44,8 @@ public class MainActivity extends Activity {
         break ;
     case R.id.mi2:
         {  
-         m_recorder.free() ;
+            m_recorder.free() ;
             m_player.free() ;
-
             m_player = null ;
             m_recorder = null ;
         }
